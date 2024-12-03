@@ -1,0 +1,36 @@
+name: Auto-update formulae/casks
+on:
+  workflow_dispatch: # Allow manual triggers
+  schedule:
+    - cron: '0 */12 * * *' # Run twice daily
+  release:
+    types: [published]
+
+jobs:
+  update-tap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v4
+
+      - name: Update formulae
+        uses: dawidd6/action-homebrew-bump-formula@v4
+        if: ${{ hashFiles('Formula/*.rb') }}
+        with:
+          token: ${{secrets.TOKEN}}
+          tap: ${{ github.repository }}
+          livecheck: true
+          user_name: "Martin Mauch"
+          user_email: "martin@mauch.dev"
+          force: false
+
+      - name: Update casks
+        uses: dawidd6/action-homebrew-bump-formula@v4
+        if: ${{ hashFiles('Casks/*.rb') }}
+        with:
+          token: ${{ github.token }}
+          tap: ${{ github.repository }}
+          livecheck: true
+          user_name: "Martin Mauch"
+          user_email: "martin@mauch.dev"
+          force: false
