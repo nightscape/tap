@@ -4,7 +4,7 @@ cask "gg" do
 
   url "https://github.com/gulbanana/gg/releases/download/v#{version}/gg_#{version}_universal.dmg"
   name "gg"
-  desc "GG - Gui for JJ"
+  desc "Gui for JJ"
   homepage "https://github.com/gulbanana/gg"
 
   livecheck do
@@ -19,7 +19,7 @@ cask "gg" do
   zap trash: [
     "~/Library/Application Support/GG",
     "~/Library/Caches/com.gulbanana.gg",
+    "~/Library/Logs/GG",
     "~/Library/Preferences/com.gulbanana.gg.plist",
-    "~/Library/Logs/GG"
   ]
 end
