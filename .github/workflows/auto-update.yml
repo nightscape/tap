@@ -8,7 +8,7 @@ on:
 
 jobs:
   update-tap:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout tap
         uses: actions/checkout@v4
@@ -21,16 +21,16 @@ jobs:
           tap: ${{ github.repository }}
           livecheck: true
           user_name: "Martin Mauch"
-          user_email: "martin@mauch.dev"
+          user_email: "martin.mauch@gmail.com"
           force: false
 
       - name: Update casks
         uses: dawidd6/action-homebrew-bump-formula@v4
         if: ${{ hashFiles('Casks/*.rb') }}
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.TOKEN }}
           tap: ${{ github.repository }}
           livecheck: true
           user_name: "Martin Mauch"
-          user_email: "martin@mauch.dev"
+          user_email: "martin.mauch@gmail.com"
           force: false
