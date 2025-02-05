@@ -1,12 +1,17 @@
 class KineticMerge < Formula
   desc "Merge a heavily refactored codebase and stay sane."
   homepage "http://github.com/sageserpent-open/kineticMerge"
-  url "http://github.com/sageserpent-open/kineticMerge/releases/download/v1.3.0/kinetic-merge"
-  version "1.3.0"
-  sha256 "65c507018a7f0d2e246c81749848a8e67a0c2fa0e7f6d27fc5d097d6cfd5a590"
+  version "1.5.1"
+  url "http://github.com/sageserpent-open/kineticMerge/releases/download/v#{version}/kinetic-merge"
+  sha256 "bb06f91a0a8fbc50dfbd9d439a2edf3f62cd5ff6d7d0e162f2a7266b54eb43cf"
   license "MIT"
 
   depends_on "openjdk"
+
+  livecheck do
+    url "https://github.com/sageserp-open/kineticMerge/releases/"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   def install
     libexec.install Dir["*"].shift => "kinetic-merge"
