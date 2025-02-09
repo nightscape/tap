@@ -1,9 +1,9 @@
 class Kanata < Formula
   desc "Improve keyboard comfort and usability with advanced customization"
   homepage "https://github.com/jtroo/kanata"
-  url "https://github.com/jtroo/kanata/archive/refs/tags/v1.7.0.tar.gz"
+  url "https://github.com/jtroo/kanata/archive/refs/tags/v1.8.0.tar.gz"
 
-  sha256 "eb7e11511f77558d72b5b3b0c9defb04b269637e5c8a4ad9b45d21382e9247d2"
+  sha256 "396a379d7620001531b856913a2677baa56fa16c5c9d329f6937dfb57d3ac704"
   license "LGPL-3.0-or-later"
   head "https://github.com/jtroo/kanata.git", branch: "main"
 
